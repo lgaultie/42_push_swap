@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_order.c                                      :+:      :+:    :+:   */
+/*   free_and_ret.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/09 16:31:09 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:14:02 by lgaultie         ###   ########.fr       */
+/*   Created: 2019/06/09 18:26:31 by lgaultie          #+#    #+#             */
+/*   Updated: 2019/06/09 18:39:52 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int		check_order(t_stack *stack_a, t_stack *stack_b)
+t_stack		*free_wrong_list(t_stack *stack)
 {
-	int		i;
+	ft_putstr("Error\n");
+	free(stack->array);
+	free(stack);
+	return (NULL);
+}
 
-	if (stack_b->size > 0)
-		return (-1);
-	i = 0;
-	while (i < stack_a->size - 2)
-	{
-		if (stack_a->array[i] > stack_a->array[i + 1])
-			return (-1);
-		i++;
-	}
-	return (0);
+void		free_stack(t_stack *stack_a, t_stack *stack_b)
+{
+	free(stack_a->array);
+	free(stack_a);
+	free(stack_b->array);
+	free(stack_b);
 }

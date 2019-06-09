@@ -6,13 +6,13 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:44:29 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 17:20:13 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/09 18:48:57 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	apply_swap(char *line, t_stack *a, t_stack *b)
+static void		apply_swap(char *line, t_stack *a, t_stack *b)
 {
 	if (ft_strcmp(line, "sa") == 0)
 		swap(a);
@@ -25,7 +25,7 @@ void	apply_swap(char *line, t_stack *a, t_stack *b)
 	}
 }
 
-void	apply_rotate(char *line, t_stack *a, t_stack *b)
+static void		apply_rotate(char *line, t_stack *a, t_stack *b)
 {
 	if (ft_strcmp(line, "ra") == 0)
 		rotate(a);
@@ -38,7 +38,7 @@ void	apply_rotate(char *line, t_stack *a, t_stack *b)
 	}
 }
 
-void	apply_reverse_rotate(char *line, t_stack *a, t_stack *b)
+static void		apply_reverse_rotate(char *line, t_stack *a, t_stack *b)
 {
 	if (ft_strcmp(line, "rra") == 0)
 		reverse_rotate(a);
@@ -51,7 +51,7 @@ void	apply_reverse_rotate(char *line, t_stack *a, t_stack *b)
 	}
 }
 
-void	apply_instruct(char *line, t_stack *a, t_stack *b)
+void			apply_instruct(char *line, t_stack *a, t_stack *b)
 {
 	if (ft_strcmp(line, "pa") == 0)
 		push(b, a);

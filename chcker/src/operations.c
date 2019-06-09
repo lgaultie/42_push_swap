@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:38:43 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:03:24 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/09 18:17:35 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	swap(t_stack *stack)
 {
 	int		tmp;
 
-	// printf("argc = %d\n", argc);
 	if (stack->size <= 2)
 		return ;
 	else
@@ -44,7 +43,6 @@ void	rotate(t_stack *stack)
 	int		i;
 
 	i = 0;
-	// printf("argc = %d\n", argc);
 	if (stack->size <= 2)
 		return ;
 	tmp = stack->array[0];
@@ -71,7 +69,6 @@ void	reverse_rotate(t_stack *stack)
 	if (stack->size <= 2)
 		return ;
 	tmp = stack->array[i];
-	// printf("tmp = %d   stack->size = %d\n",tmp, stack->size);
 	while (i > 0)
 	{
 		stack->array[i] = stack->array[i - 1];
@@ -91,9 +88,8 @@ void	push(t_stack *from, t_stack *dest)
 	int		i;
 
 	i = 0;
-	// printf("from->size = %d   dest->size = %d\n", from->size, dest->size);
 	if (from->size < 1)
-		return;
+		return ;
 	dest->size++;
 	if (dest->size > 1)
 	{

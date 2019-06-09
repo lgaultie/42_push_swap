@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_order.c                                      :+:      :+:    :+:   */
+/*   read_input.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/09 16:31:09 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:14:02 by lgaultie         ###   ########.fr       */
+/*   Created: 2019/06/09 18:23:11 by lgaultie          #+#    #+#             */
+/*   Updated: 2019/06/09 18:40:12 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int		check_order(t_stack *stack_a, t_stack *stack_b)
+int			read_input(t_stack *stack_a, t_stack *stack_b)
 {
-	int		i;
+	char	*line;
+	int		ret;
 
-	if (stack_b->size > 0)
-		return (-1);
-	i = 0;
-	while (i < stack_a->size - 2)
+	ret = 1;
+	line = NULL;
+	while (ret != 0)
 	{
-		if (stack_a->array[i] > stack_a->array[i + 1])
+		if (line)
+			free(line);
+		ret = get_next_line(0, &line);
+		if (check_format(line) == -1)
+		{
+			if (line)
+				free(line);
 			return (-1);
-		i++;
+		}
+		apply_instruct(line, stack_a, stack_b);
 	}
 	return (0);
 }

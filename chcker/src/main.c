@@ -6,36 +6,26 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 14:30:09 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:08:17 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/09 18:49:34 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int		read_input(t_stack *stack_a, t_stack *stack_b)
+static t_stack		*create_stack_a(int argc, int visu)
 {
-	char	*line;
-	int		ret;
+	t_stack		*stack;
 
-	ret = 1;
-	line = NULL;
-	while (ret != 0)
-	{
-		if (line)
-			free(line);
-		ret = get_next_line(0, &line);
-		if (check_format(line) == -1)
-		{
-			if (line)
-				free(line);
-			return (-1);
-		}
-		apply_instruct(line, stack_a, stack_b);
-	}
-	return (0);
+	if (!(stack = ft_memalloc(sizeof(t_stack))))
+		return (NULL);
+	if (!(stack->array = ft_memalloc(sizeof(int) * argc - 1)))
+		return (NULL);
+	stack->size = argc - 1;
+	stack->visu = visu;
+	return (stack);
 }
 
-t_stack		*initalize_stack_a(int argc, char **argv)
+static t_stack		*initalize_stack_a(int argc, char **argv)
 {
 	t_stack		*stack;
 	int			i;
@@ -45,54 +35,26 @@ t_stack		*initalize_stack_a(int argc, char **argv)
 
 	i = 1;
 	x = 0;
-	visu = 0;
-	while (i < argc)
-	{
-		if (ft_strcmp(argv[i], "-v") == 0)
-		{
-			visu = 1;
-			argc--;
-		}
-		i++;
-	}
-	i = 1;
-	if (!(stack = ft_memalloc(sizeof(t_stack))))
+	visu = display_or_not(argc, argv);
+	if (visu == 1)
+		argc--;
+	if ((stack = create_stack_a(argc, visu)) == NULL)
 		return (NULL);
-	if (!(stack->array = ft_memalloc(sizeof(int) * argc - 1)))
-		return (NULL);
-	stack->size = argc - 1;
-	stack->visu = visu;
 	while (i < argc + visu)
 	{
 		if (ft_strcmp(argv[i], "-v") == 0)
 			i++;
 		ret = modified_atoi(argv[i]);
 		stack->array[x] = ret;
-		// printf("argv[%d] = %s  argc = %d \n", i, argv[i], argc);
-		// printf("stack[%d] = %d  argc = %d \n", x, stack->array[x], argc);
-		if (ret > 2147483647 || ret < -2147483648 \
-			|| check_duplicates(stack, x) == -1)
-		{
-			ft_putstr("Error\n");
-			free(stack->array);
-			free(stack);
-			return (NULL);
-		}
+		if (ret > 2147483647 || ret < -2147483648 || duplicates(stack, x) == -1)
+			return (free_wrong_list(stack));
 		x++;
 		i++;
 	}
 	return (stack);
 }
 
-void	free_stack(t_stack *stack_a, t_stack *stack_b)
-{
-	free(stack_a->array);
-	free(stack_a);
-	free(stack_b->array);
-	free(stack_b);
-}
-
-void	create_stacks(int argc, char **argv)
+static void			create_stacks(int argc, char **argv)
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
@@ -115,18 +77,11 @@ void	create_stacks(int argc, char **argv)
 		ft_putstr("KO\n");
 	else
 		ft_putstr("OK\n");
-	if (stack_a->visu == 1)
-	{
-		ft_putstr("STACK A\n");
-		print_tab(stack_a);
-		ft_putstr("------------\n");
-		ft_putstr("STACK B\n");
-		print_tab(stack_b);
-	}
+	both_visualization(stack_a, stack_b);
 	free_stack(stack_a, stack_b);
 }
 
-int		main(int argc, char **argv)
+int					main(int argc, char **argv)
 {
 	if (argc == 2 && ft_strcmp(argv[1], "-v") == 0)
 		return (0);

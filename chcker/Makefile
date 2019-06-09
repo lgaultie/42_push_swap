@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/28 18:26:04 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/09 16:35:00 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/09 18:27:01 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRCS =	main.c				\
 		display.c			\
 		apply.c				\
 		operations.c		\
-		check_order.c
+		check_order.c		\
+		read_input.c		\
+		free_and_ret.c
 
 OBJ = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 LIB = $(LIBDIR)/libft.a
