@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 14:30:09 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:49:34 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/10 12:47:43 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,30 @@ static t_stack		*create_stack_a(int argc, int visu)
 	return (stack);
 }
 
-static t_stack		*initalize_stack_a(int argc, char **argv)
+static t_stack		*init_stack_a(t_stack *stack, int argc, char **argv, int i)
 {
-	t_stack		*stack;
-	int			i;
 	int			x;
 	long		ret;
 	int			visu;
+	int			count;
 
 	i = 1;
 	x = 0;
-	visu = display_or_not(argc, argv);
-	if (visu == 1)
-		argc--;
+	count = count_visu(argc, argv);
+	visu = (count > 0) ? 1 : 0;
+	argc = argc - count;
 	if ((stack = create_stack_a(argc, visu)) == NULL)
 		return (NULL);
-	while (i < argc + visu)
+	while (i < argc + count)
 	{
-		if (ft_strcmp(argv[i], "-v") == 0)
-			i++;
-		ret = modified_atoi(argv[i]);
-		stack->array[x] = ret;
-		if (ret > 2147483647 || ret < -2147483648 || duplicates(stack, x) == -1)
-			return (free_wrong_list(stack));
-		x++;
+		if (argv[i] != NULL && ft_strcmp(argv[i], "-v") != 0)
+		{
+			ret = modified_atoi(argv[i]);
+			stack->array[x] = ret;
+			if (ret > 2147483647 || ret < -2147483648 || duplic(stack, x) == -1)
+				return (free_wrong_list(stack));
+			x++;
+		}
 		i++;
 	}
 	return (stack);
@@ -59,7 +59,8 @@ static void			create_stacks(int argc, char **argv)
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 
-	if (!(stack_a = initalize_stack_a(argc, argv)))
+	stack_a = NULL;
+	if (!(stack_a = init_stack_a(stack_a, argc, argv, argc)))
 		return ;
 	if (!(stack_b = ft_memalloc(sizeof(t_stack))))
 		return ;

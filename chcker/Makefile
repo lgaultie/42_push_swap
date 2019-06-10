@@ -6,18 +6,18 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/28 18:26:04 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/09 18:27:01 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/10 12:52:10 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = checker
 CC = @clang
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 OBJDIR = obj
 SRCDIR = src
 LIBDIR = ../libft
 SRCS =	main.c				\
-		argv_error.c		\
+		error.c				\
 		display.c			\
 		apply.c				\
 		operations.c		\

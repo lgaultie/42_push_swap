@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   argv_error.c                                       :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/09 15:35:53 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:22:05 by lgaultie         ###   ########.fr       */
+/*   Created: 2019/06/10 12:51:51 by lgaultie          #+#    #+#             */
+/*   Updated: 2019/06/10 12:51:54 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,11 @@ long			modified_atoi(const char *str)
 	return (res);
 }
 
-int				duplicates(t_stack *stack, int index)
+/*
+** duplic: checks for forbidden duplicates in the arguments.
+*/
+
+int				duplic(t_stack *stack, int index)
 {
 	int		i;
 
@@ -81,7 +85,9 @@ int				duplicates(t_stack *stack, int index)
 	while (i < index)
 	{
 		if (stack->array[i] == stack->array[index])
+		{
 			return (-1);
+		}
 		i++;
 	}
 	return (0);

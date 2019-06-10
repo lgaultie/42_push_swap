@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:38:43 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:17:35 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/10 12:43:38 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ void	swap(t_stack *stack)
 {
 	int		tmp;
 
-	if (stack->size <= 2)
+	if (stack->size <= 1)
+	{
+		visualization(stack);
 		return ;
+	}
 	else
 	{
 		tmp = stack->array[0];
@@ -43,8 +46,11 @@ void	rotate(t_stack *stack)
 	int		i;
 
 	i = 0;
-	if (stack->size <= 2)
+	if (stack->size <= 1)
+	{
+		visualization(stack);
 		return ;
+	}
 	tmp = stack->array[0];
 	while (i < stack->size - 1)
 	{
@@ -66,8 +72,11 @@ void	reverse_rotate(t_stack *stack)
 	int		i;
 
 	i = stack->size - 1;
-	if (stack->size <= 2)
+	if (stack->size <= 1)
+	{
+		visualization(stack);
 		return ;
+	}
 	tmp = stack->array[i];
 	while (i > 0)
 	{
@@ -89,7 +98,7 @@ void	push(t_stack *from, t_stack *dest)
 
 	i = 0;
 	if (from->size < 1)
-		return ;
+		return (push_visu(from, dest));
 	dest->size++;
 	if (dest->size > 1)
 	{
@@ -107,6 +116,5 @@ void	push(t_stack *from, t_stack *dest)
 		from->array[i] = from->array[i + 1];
 		i++;
 	}
-	visualization(from);
-	visualization(dest);
+	push_visu(from, dest);
 }

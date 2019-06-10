@@ -6,27 +6,52 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 15:38:55 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:44:38 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/10 12:43:21 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int		display_or_not(int argc, char **argv)
+void	print_tab(t_stack *stack)
 {
 	int		i;
-	int		visu;
+
+	i = 0;
+	while (i < stack->size)
+	{
+		ft_putstr("tab[");
+		ft_putnbr(i);
+		ft_putstr("] = ");
+		ft_putnbr(stack->array[i]);
+		ft_putchar('\n');
+		i++;
+	}
+}
+
+/*
+** count_visu: count the number of "-v" in the arguments so as to reduce argc,
+** so I don't make too big malloc for my arrays.
+*/
+
+int		count_visu(int argc, char **argv)
+{
+	int		i;
+	int		count;
 
 	i = 1;
-	visu = 0;
+	count = 0;
 	while (i < argc)
 	{
 		if (ft_strcmp(argv[i], "-v") == 0)
-			visu = 1;
+			count++;
 		i++;
 	}
-	return (visu);
+	return (count);
 }
+
+/*
+** both_visualization: called at the end of the programm when "-v" is asked.
+*/
 
 void	both_visualization(t_stack *stack_a, t_stack *stack_b)
 {
@@ -46,14 +71,14 @@ void	visualization(t_stack *stack)
 		print_tab(stack);
 }
 
-void	print_tab(t_stack *stack)
+void	push_visu(t_stack *from, t_stack *dest)
 {
-	int		i;
-
-	i = 0;
-	while (i < stack->size)
+	if (from->visu == 1)
 	{
-		printf("tab[%d] = %d\n", i, stack->array[i]);
-		i++;
+		ft_putstr("------from------\n");
+		visualization(from);
+		ft_putstr("------dest------\n");
+		visualization(dest);
 	}
+	return ;
 }
