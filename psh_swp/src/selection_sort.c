@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 16:53:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/11 13:12:43 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/11 15:35:45 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,17 @@ t_stack			*rotate_small_numbers_to_top(t_stack *stack_a, int i, int min)
 {
 	if (stack_a->array[0] > min)
 	{
-		if (i > stack_a->size / 2)
+		if (i == 1)
+		{
+			swap(stack_a);
+			ft_putstr("sa\n");
+		}
+		else if (i > stack_a->size / 2)
 		{
 			reverse_rotate(stack_a);
 			ft_putstr("rra\n");
 		}
-		if (i <= stack_a->size / 2)
+		else if (i <= stack_a->size / 2)
 		{
 			rotate(stack_a);
 			ft_putstr("ra\n");
