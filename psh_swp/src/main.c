@@ -6,11 +6,33 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:20:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/10 18:04:25 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/11 14:06:53 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+** check_sorted_params: check if the stack is already sorted. Returns -1 if it
+** is sorted, and 0 if it's not.
+*/
+
+int					check_sorted_params(t_stack *stack)
+{
+	int		i;
+
+	if (stack->size < 1)
+		return (-1);
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		if (stack->array[i] < stack->array[i + 1])
+			i++;
+		else
+			return (0);
+	}
+	return (-1);
+}
 
 static t_stack		*init_stack_a(t_stack *stack, int argc, char **argv)
 {
@@ -63,6 +85,14 @@ static void			create_stacks(int argc, char **argv)
 	stack_b->size = 0;
 	if (!(stack_b->array = ft_memalloc(sizeof(int) * argc - 1)))
 		return ;
+	if (check_sorted_params(stack_a) == -1)
+	{
+		free(stack_a->array);
+		free(stack_a);
+		free(stack_b->array);
+		free(stack_b);
+		return ;
+	}
 	push_swap(stack_a, stack_b);
 
 	ft_putstr("stack_a--------\n");////////////////////////////////////////////
