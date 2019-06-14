@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/10 13:20:03 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/14 11:58:59 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/14 15:56:17 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,13 @@ SRCDIR = src
 INC = ./includes/
 LIBDIR = ../libft
 SRCS =	main.c				\
+		init_stack_a.c		\
 		error.c				\
 		display.c			\
 		selection_sort.c	\
 		quicksort.c			\
-		operations.c
+		operations.c		\
+		free_functions.c
 
 OBJ = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 LIB = $(LIBDIR)/libft.a

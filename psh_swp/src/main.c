@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:20:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/14 11:44:06 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 15:55:35 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,36 +34,6 @@ int					check_sorted_params(t_stack *stack)
 	return (-1);
 }
 
-static t_stack		*init_stack_a(t_stack *stack, int argc, char **argv)
-{
-	int			i;
-	int			x;
-	long		ret;
-
-	i = 1;
-	x = 0;
-	if (!(stack = ft_memalloc(sizeof(t_stack))))
-	return (NULL);
-	if (!(stack->array = ft_memalloc(sizeof(int) * argc - 1)))
-	return (NULL);
-	stack->size = argc - 1;
-	while (i < argc)
-	{
-		ret = modified_atoi(argv[i]);
-		stack->array[x] = ret;
-		if (ret > 2147483647 || ret < -2147483648 || duplic(stack, x) == -1)
-		{
-			ft_putstr("Error\n");
-			free(stack->array);
-			free(stack);
-			return (NULL);
-		}
-		x++;
-		i++;
-	}
-	return (stack);
-}
-
 void				push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size <= 10)
@@ -83,7 +53,7 @@ static void			create_stacks(int argc, char **argv)
 	if (!(stack_b = ft_memalloc(sizeof(t_stack))))
 		return ;
 	stack_b->size = 0;
-	if (!(stack_b->array = ft_memalloc(sizeof(int) * argc - 1)))
+	if (!(stack_b->array = ft_memalloc(sizeof(int) * stack_a->size)))
 		return ;
 	if (check_sorted_params(stack_a) == -1)
 	{

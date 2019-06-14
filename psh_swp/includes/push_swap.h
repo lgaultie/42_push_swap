@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:21:05 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/11 11:10:16 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 15:56:01 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	s_stack
 	int			size;
 }				t_stack;
 
+t_stack			*init_stack_a(t_stack *stack, int argc, char **argv);
 long			modified_atoi(const char *str);
 int				duplic(t_stack *stack, int index);
 void			print_tab(t_stack *stack);
@@ -31,6 +32,7 @@ void			reverse_rotate(t_stack *stack);
 void			push(t_stack *from, t_stack *dest);
 void			rotate(t_stack *stack);
 void			swap(t_stack *stack);
+void			free_tab(char **tab);
 int				check_sorted_params(t_stack *stack);
 
 #endif

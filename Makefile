@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/14 10:37:04 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/14 11:58:28 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/14 15:56:28 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ PUSH_OBJDIR = psh_swp/obj
 CHECK_SRCDIR = chcker/src
 PUSH_SRCDIR = psh_swp/src
 CHECK_SRCS =	main.c				\
+				init_stacks.c		\
 				error.c				\
 				display.c			\
 				apply.c				\
@@ -31,11 +32,13 @@ CHECK_SRCS =	main.c				\
 				read_input.c		\
 				free_and_ret.c
 PUSH_SRCS =		main.c				\
+				init_stack_a.c		\
 				error.c				\
 				display.c			\
 				selection_sort.c	\
 				quicksort.c			\
-				operations.c
+				operations.c		\
+				free_functions.c
 
 _GREEN=\e[32m
 _YELLOW=\e[33m

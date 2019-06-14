@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 14:35:02 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/10 12:52:00 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 15:13:04 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CHECKER_H
 
 # include "../../libft/libft.h"
+# include <stdio.h>
 
 typedef struct	s_stack
 {
@@ -22,6 +23,7 @@ typedef struct	s_stack
 	int			size;
 }				t_stack;
 
+void			create_stacks(int argc, char **argv);
 long			modified_atoi(const char *str);
 int				read_input(t_stack *stack_a, t_stack *stack_b);
 int				duplic(t_stack *stack, int index);
@@ -37,7 +39,8 @@ void			push_visu(t_stack *from, t_stack *dest);
 void			visualization(t_stack *stack);
 void			both_visualization(t_stack *stack_a, t_stack *stack_b);
 void			free_stack(t_stack *stack_a, t_stack *stack_b);
-t_stack			*free_wrong_list(t_stack *stack);
+void			free_tab(char **tab);
+int				free_wrong_list(t_stack *stack);
 int				count_visu(int argc, char **argv);
 
 #endif

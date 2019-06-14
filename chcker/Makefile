@@ -6,18 +6,19 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/28 18:26:04 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/14 11:58:57 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/14 15:24:34 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = checker
 CC = @clang
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 OBJDIR = obj
 SRCDIR = src
 INC = ./includes/
 LIBDIR = ../libft
 SRCS =	main.c				\
+		init_stacks.c		\
 		error.c				\
 		display.c			\
 		apply.c				\

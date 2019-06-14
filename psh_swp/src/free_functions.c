@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/09 14:30:09 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/14 14:32:04 by lgaultie         ###   ########.fr       */
+/*   Created: 2019/06/14 15:34:30 by lgaultie          #+#    #+#             */
+/*   Updated: 2019/06/14 15:34:44 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include <push_swap.h>
 
-int					main(int argc, char **argv)
+void		free_tab(char **tab)
 {
-	if (argc == 2 && ft_strcmp(argv[1], "-v") == 0)
-		return (0);
-	if (argc <= 1)
-		return (0);
-	create_stacks(argc, argv);
-	return (0);
+	int		i;
+
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }
