@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 18:26:31 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:39:52 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:43:34 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <checker.h>
 
 t_stack		*free_wrong_list(t_stack *stack)
 {

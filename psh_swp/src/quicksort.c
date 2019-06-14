@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 16:36:22 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/11 16:28:21 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:44:12 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 /*
 ** choose_pivot: returns index of the pivot, chosen with the 3-median method.
@@ -68,10 +68,10 @@ t_stack		*put_pivot_at_end(int index_pivot, t_stack *stack)
 	return (stack);
 }
 
-t_stack		*swap_left_right(t_stack *stack)
-{
-
-}
+// t_stack		*swap_left_right(t_stack *stack)
+// {
+//
+// }
 
 void	quicksort(t_stack *stack_a, t_stack *stack_b)
 {
@@ -82,6 +82,6 @@ void	quicksort(t_stack *stack_a, t_stack *stack_b)
 	index_pivot = choose_pivot(stack_a);
 	// printf("pivot = stack_a[%d] = %d\n", index_pivot, stack_a->array[index_pivot]);
 	stack_a = put_pivot_at_end(index_pivot, stack_a);
-	stack_a = swap_left_right(stack_a);
+	// stack_a = swap_left_right(stack_a);
 	print_tab(stack_a);
 }

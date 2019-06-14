@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 16:31:09 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/10 12:50:23 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:43:27 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <checker.h>
 
 int		check_order(t_stack *stack_a, t_stack *stack_b)
 {

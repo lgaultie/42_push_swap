@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:44:29 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:48:57 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:43:25 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <checker.h>
 
 static void		apply_swap(char *line, t_stack *a, t_stack *b)
 {

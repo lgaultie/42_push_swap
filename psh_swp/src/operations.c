@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 16:56:57 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/10 16:57:36 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:47:21 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 /*
 ** swap: swap the first 2 elements at the top of stack.

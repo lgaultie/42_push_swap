@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 16:53:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/11 15:35:45 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:44:16 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 int				index_of_smallest(t_stack *stack)
 {

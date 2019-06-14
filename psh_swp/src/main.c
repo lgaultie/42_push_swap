@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:20:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/11 16:07:52 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:44:06 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 /*
 ** check_sorted_params: check if the stack is already sorted. Returns -1 if it
@@ -66,9 +66,9 @@ static t_stack		*init_stack_a(t_stack *stack, int argc, char **argv)
 
 void				push_swap(t_stack *stack_a, t_stack *stack_b)
 {
-	// if (stack_a->size <= 10)
-	// 	selection_sort(stack_a, stack_b);
-	// else
+	if (stack_a->size <= 10)
+		selection_sort(stack_a, stack_b);
+	else
 		quicksort(stack_a, stack_b);
 }
 

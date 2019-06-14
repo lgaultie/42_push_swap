@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 18:23:11 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/09 18:40:12 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:43:44 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <checker.h>
 
 int			read_input(t_stack *stack_a, t_stack *stack_b)
 {

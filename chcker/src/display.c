@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 15:38:55 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/10 12:43:21 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:43:30 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <checker.h>
 
 void	print_tab(t_stack *stack)
 {

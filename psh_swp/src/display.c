@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 14:04:38 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/10 14:04:46 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:48:26 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 void	print_tab(t_stack *stack)
 {

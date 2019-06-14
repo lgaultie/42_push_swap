@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 14:30:09 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/10 12:47:43 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:43:39 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <checker.h>
 
 static t_stack		*create_stack_a(int argc, int visu)
 {

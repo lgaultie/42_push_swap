@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:38:43 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/10 12:43:38 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:43:41 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include <checker.h>
 
 /*
 ** swap: swap the first 2 elements at the top of stack.

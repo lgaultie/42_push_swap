@@ -84,6 +84,7 @@ OBJ = $(SRCS:.c=.o)
 HEADER = .
 
 _GREEN=\e[32m
+_PURPLE=\e[35m
 _YELLOW=\e[33m
 _CYAN=\e[36m
 _END=\e[0m
@@ -98,7 +99,7 @@ $(NAME):
 
 clean:
 	@rm -f $(OBJ)
-	@printf "$(_YELLOW)libft cleaned.. $(_END)"
+	@printf "$(_PURPLE)libft $(_YELLOW)cleaned.. $(_END)"
 
 fclean: clean
 	@rm -f $(NAME)

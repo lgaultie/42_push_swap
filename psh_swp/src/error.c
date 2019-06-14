@@ -6,11 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:36:44 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/10 13:36:51 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/14 11:44:03 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 static int		check_no_int(const char *str)
 {

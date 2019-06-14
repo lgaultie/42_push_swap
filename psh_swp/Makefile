@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/10 13:20:03 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/10 16:57:47 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/14 11:58:59 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC = @clang
 CFLAGS = -Wall -Werror -Wextra
 OBJDIR = obj
 SRCDIR = src
+INC = ./includes/
 LIBDIR = ../libft
 SRCS =	main.c				\
 		error.c				\
@@ -27,6 +28,7 @@ OBJ = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 LIB = $(LIBDIR)/libft.a
 
 _GREEN=\e[32m
+_PRPLE=\e[35m
 _YELLOW=\e[33m
 _CYAN=\e[36m
 _END=\e[0m
@@ -36,14 +38,14 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@printf "$(_YELLOW)Compilation... $(_END)"
 	@cd $(LIBDIR) && make
-	@$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
-	@printf "$(_GREEN)Compilation done [✓]$(_END)\n"
+	@$(CC) $(CFLAGS) $(OBJ) -I$(INC) $(LIB) -o $(NAME)
+	@printf "$(_GREEN)push_swap done [✓]$(_END)\n"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c -I$(INC) $< -o $@
 
 $(OBJDIR) :
-	@printf "$(_YELLOW)Creating obj folder $(_END)"
+	@printf "$(_YELLOW)Creating $(_PRPLE)push_swap$(_YELLOW) obj folder $(_END)"
 	@mkdir $@
 	@printf "$(_CYAN)done$(_END)\n"
 
