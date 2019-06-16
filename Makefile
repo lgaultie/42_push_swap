@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/14 10:37:04 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/14 15:56:28 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/16 15:56:14 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,9 @@ PUSH_SRCS =		main.c				\
 				error.c				\
 				display.c			\
 				selection_sort.c	\
-				quicksort.c			\
+				biglist.c			\
 				operations.c		\
+				which_sort.c		\
 				free_functions.c
 
 _GREEN=\e[32m

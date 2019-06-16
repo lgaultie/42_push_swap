@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 16:53:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/14 11:44:16 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/16 15:53:32 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,12 +127,12 @@ void			selection_sort(t_stack *stack_a, t_stack *stack_b)
 	int		i;
 	int		min;
 
-	while (stack_a->size > 3 && check_sorted_params(stack_a) == 0)
+	while (stack_a->size > 3 && check_sorted_params(stack_a) != -1)
 	{
 		i = index_of_smallest(stack_a);
 		min = stack_a->array[i];
 		stack_a = rotate_small_numbers_to_top(stack_a, i, min);
-		if (stack_a->array[0] == min && check_sorted_params(stack_a) == 0)
+		if (stack_a->array[0] == min && check_sorted_params(stack_a) != -1)
 		{
 			push(stack_a, stack_b);
 			ft_putstr("pb\n");

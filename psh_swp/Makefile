@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/10 13:20:03 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/14 15:56:17 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/16 15:56:07 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,9 @@ SRCS =	main.c				\
 		error.c				\
 		display.c			\
 		selection_sort.c	\
-		quicksort.c			\
+		biglist.c			\
 		operations.c		\
+		which_sort.c		\
 		free_functions.c
 
 OBJ = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 10:55:33 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/14 15:33:23 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/16 10:58:28 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ char			**ft_strsplit(char const *s, char c)
 	while (j < nbrchar)
 	{
 		k = 0;
+		while (s[i] == ' ')
+			i++;
 		if (!(ret[j] = ft_strnew(countchar(s, i, c))))
 			return (0);
 		while (s[i] && s[i] != c)

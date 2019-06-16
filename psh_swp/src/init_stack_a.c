@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/14 15:55:11 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/14 15:57:00 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/16 11:28:53 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,6 @@ t_stack				*init_stack_a(t_stack *stack, int argc, char **argv)
 			return (NULL);
 		i++;
 	}
-	print_tab(stack);
+	// print_tab(stack);
 	return (stack);
 }
