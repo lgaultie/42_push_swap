@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 12:12:59 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/01 17:27:35 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/17 19:19:22 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,7 @@ static int				stock(char **str, char **line)
 			return (-1);
 		(*str)[i] = '\0';
 		if (!(*line = ft_strdup(*str)))
-		{
-			free(save);
 			return (-1);
-		}
 		free(*str);
 		*str = save;
 		return (1);

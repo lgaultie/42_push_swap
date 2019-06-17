@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 14:35:02 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/14 15:13:04 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/17 19:27:12 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_stack
 	int			size;
 }				t_stack;
 
-void			create_stacks(int argc, char **argv);
+t_stack			*init_stack_a(t_stack *stack, int argc, char **argv, int i);
 long			modified_atoi(const char *str);
 int				read_input(t_stack *stack_a, t_stack *stack_b);
 int				duplic(t_stack *stack, int index);

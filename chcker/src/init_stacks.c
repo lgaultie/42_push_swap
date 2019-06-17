@@ -6,22 +6,19 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/14 14:31:48 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/14 15:48:13 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/17 19:27:14 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <checker.h>
 
-static t_stack	*create_stack_a(int argc, int visu, char **argv)
+static int		calculate_argc(int argc, char **argv, int j)
 {
-	t_stack		*stack;
 	int			i;
-	int			j;
 	char		**tab;
 	int			cpy_argc;
 
 	i = 1;
-	j = 0;
 	cpy_argc = argc;
 	while (i < cpy_argc)
 	{
@@ -40,6 +37,16 @@ static t_stack	*create_stack_a(int argc, int visu, char **argv)
 		}
 		i++;
 	}
+	return (argc);
+}
+
+static t_stack	*create_stack_a(int argc, int visu, char **argv)
+{
+	int			j;
+	t_stack		*stack;
+
+	j = 0;
+	argc = calculate_argc(argc, argv, j);
 	if (!(stack = ft_memalloc(sizeof(t_stack))))
 		return (NULL);
 	if (!(stack->array = ft_memalloc(sizeof(int) * (argc - 1))))
@@ -65,7 +72,7 @@ static int		no_quote(int i, char **argv, int x, t_stack *stack)
 	return (x);
 }
 
-static int			case_of_quote(int i, char **argv, int x, t_stack *stack)
+static int		case_of_quote(int i, char **argv, int x, t_stack *stack)
 {
 	char		**tab;
 	int			j;
@@ -93,7 +100,7 @@ static int			case_of_quote(int i, char **argv, int x, t_stack *stack)
 	return (x);
 }
 
-static t_stack	*init_stack_a(t_stack *stack, int argc, char **argv, int i)
+t_stack			*init_stack_a(t_stack *stack, int argc, char **argv, int i)
 {
 	int			x;
 	int			visu;
@@ -118,32 +125,4 @@ static t_stack	*init_stack_a(t_stack *stack, int argc, char **argv, int i)
 		i++;
 	}
 	return (stack);
-}
-
-void			create_stacks(int argc, char **argv)
-{
-	t_stack		*stack_a;
-	t_stack		*stack_b;
-
-	stack_a = NULL;
-	if (!(stack_a = init_stack_a(stack_a, argc, argv, argc)))
-		return ;
-	if (!(stack_b = ft_memalloc(sizeof(t_stack))))
-		return ;
-	if (!(stack_b->array = ft_memalloc(sizeof(int) * stack_a->size)))
-		return ;
-	stack_b->size = 0;
-	stack_b->visu = stack_a->visu;
-	if (read_input(stack_a, stack_b) == -1)
-	{
-		free_stack(stack_a, stack_b);
-		ft_putstr("Error\n");
-		return ;
-	}
-	if (check_order(stack_a, stack_b) == -1)
-		ft_putstr("KO\n");
-	else
-		ft_putstr("OK\n");
-	both_visualization(stack_a, stack_b);
-	free_stack(stack_a, stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 10:55:33 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/16 10:58:28 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/17 19:17:40 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,12 @@ static int		countchar(char const *str, int i, char c)
 	return (nbrchar);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char			**ft_strsplit2(char const *s, char c, int i, int j)
 {
 	char	**ret;
-	int		j;
-	int		i;
 	int		k;
 	int		nbrchar;
 
-	j = 0;
-	i = 0;
 	nbrchar = countwords(s, c);
 	if (!s)
 		return (0);
@@ -75,4 +71,14 @@ char			**ft_strsplit(char const *s, char c)
 	}
 	ret[j] = 0;
 	return (ret);
+}
+
+char			**ft_strsplit(char const *s, char c)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	return (ft_strsplit2(s, c, i, j));
 }
