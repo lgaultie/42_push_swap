@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 16:53:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/16 15:53:32 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/17 18:20:49 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ t_stack			*rotate_small_numbers_to_top(t_stack *stack_a, int i, int min)
 			rotate(stack_a);
 			ft_putstr("ra\n");
 		}
-		// print_tab(stack_a);
-		// ft_putchar('\n');
 	}
 	return (stack_a);
 }
@@ -116,12 +114,6 @@ t_stack			*sort_three_last_numbers_on_a(t_stack *stack)
 	return (stack);
 }
 
-/*
-** selection_sort: met le plus petit element en haut de la pile a avec des
-** rotate et reverse_rotate, puis push le sur b. Repeat... Puis repush la pile
-** b sur a --> trié
-*/
-
 void			selection_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int		i;
@@ -136,8 +128,6 @@ void			selection_sort(t_stack *stack_a, t_stack *stack_b)
 		{
 			push(stack_a, stack_b);
 			ft_putstr("pb\n");
-			// print_tab(stack_a);
-			// ft_putchar('\n');
 		}
 	}
 	sort_three_last_numbers_on_a(stack_a);

@@ -6,15 +6,19 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/14 15:55:11 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/16 11:28:53 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/17 18:42:48 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static t_stack	*create_stack_a(int argc, char **argv)
+/*
+** calculate_argc: in case of quotes containing severals arguments, this
+** functions calculates the true number of arguments to do a clean malloc.
+*/
+
+static int			calculate_argc(int argc, char **argv)
 {
-	t_stack		*stack;
 	int			i;
 	int			j;
 	char		**tab;
@@ -37,6 +41,14 @@ static t_stack	*create_stack_a(int argc, char **argv)
 		}
 		i++;
 	}
+	return (argc);
+}
+
+static t_stack		*create_stack_a(int argc, char **argv)
+{
+	t_stack		*stack;
+
+	argc = calculate_argc(argc, argv);
 	if (!(stack = ft_memalloc(sizeof(t_stack))))
 		return (NULL);
 	if (!(stack->array = ft_memalloc(sizeof(int) * argc - 1)))
@@ -45,7 +57,7 @@ static t_stack	*create_stack_a(int argc, char **argv)
 	return (stack);
 }
 
-static int		no_quote(int i, char **argv, int x, t_stack *stack)
+static int			no_quote(int i, char **argv, int x, t_stack *stack)
 {
 	long		ret;
 
@@ -54,12 +66,7 @@ static int		no_quote(int i, char **argv, int x, t_stack *stack)
 		ret = modified_atoi(argv[i]);
 		stack->array[x] = ret;
 		if (ret > 2147483647 || ret < -2147483648 || duplic(stack, x) == -1)
-		{
-			ft_putstr("Error\n");
-			free(stack->array);
-			free(stack);
-			return (-1);
-		}
+			return (free_ret(stack));
 		x++;
 	}
 	return (x);
@@ -80,12 +87,7 @@ static int			case_of_quote(int i, char **argv, int x, t_stack *stack)
 			ret = modified_atoi(tab[j]);
 			stack->array[x] = ret;
 			if (ret > 2147483647 || ret < -2147483648 || duplic(stack, x) == -1)
-			{
-				ft_putstr("Error\n");
-				free(stack->array);
-				free(stack);
-				return (-1);
-			}
+				return (free_ret(stack));
 			j++;
 			x++;
 		}
@@ -112,6 +114,5 @@ t_stack				*init_stack_a(t_stack *stack, int argc, char **argv)
 			return (NULL);
 		i++;
 	}
-	// print_tab(stack);
 	return (stack);
 }
