@@ -6,48 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/16 15:53:52 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/16 16:00:34 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/17 10:45:49 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-
-int		find_median(t_stack *stack)
-{
-	int		i;
-	// int		index_median;
-	int		median;
-	int		min;
-
-	median = 0;
-	i = 0;
-	min = stack->array[0];
-	while (i < stack->size)
-	{
-		if (stack->array[i] < min)
-			min = stack->array[i];
-		median = median + stack->array[i];
-		i++;
-	}
-	median = median / i;
-	// printf("median = %d    min = %d\n", median, min);
-	i = 0;
-	while (median >= min)
-	{
-		while (stack->array[i] != median && i < stack->size)
-			i++;
-		// printf("i = %d   size = %d\n", i,stack->size);
-		if (i < stack->size)
-			return (i);
-		else
-		{
-			// printf("median = %d\n", median);
-			median--;
-			i = 0;
-		}
-	}
-	return (0);
-}
 
 void		inverse_sort(t_stack *stack_a, t_stack *stack_b)
 {

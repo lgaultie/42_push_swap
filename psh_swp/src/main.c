@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:20:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/16 15:52:02 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/17 10:42:43 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int					check_sorted_params(t_stack *stack)
 void				push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	// if (stack_a->size <= 10)
-		which_sort(stack_a, stack_b);
+		// which_sort(stack_a, stack_b);
 	// else
-	// 	quicksort(stack_a, stack_b);
+		quicksort(stack_a, stack_b);
 }
 
 static void			create_stacks(int argc, char **argv)
@@ -65,10 +65,10 @@ static void			create_stacks(int argc, char **argv)
 	}
 	push_swap(stack_a, stack_b);
 
-	ft_putstr("stack_a--------\n");/////////////////////////////////////////
-	print_tab(stack_a);/////////////////////////////////////////////////////
-	ft_putstr("stack_b--------\n");/////////////////////////////////////////
-	print_tab(stack_b);/////////////////////////////////////////////////////
+	// ft_putstr("stack_a--------\n");/////////////////////////////////////////
+	// print_tab(stack_a);/////////////////////////////////////////////////////
+	// ft_putstr("stack_b--------\n");/////////////////////////////////////////
+	// print_tab(stack_b);/////////////////////////////////////////////////////
 
 	free(stack_a->array);
 	free(stack_a);
