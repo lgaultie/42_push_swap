@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 16:53:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/17 18:20:49 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/18 11:28:47 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,62 +56,50 @@ t_stack			*rotate_small_numbers_to_top(t_stack *stack_a, int i, int min)
 	return (stack_a);
 }
 
-t_stack			*sort_three_last_numbers_on_a2(t_stack *stack_a)
+t_stack			*sort_tree_last2(t_stack *s)
 {
-	if (stack_a->array[1] < stack_a->array[0] \
-		&& stack_a->array[1] > stack_a->array[2])
+	if (s->array[0] > s->array[1] && s->array[1] < s->array[2] \
+		&& s->array[0] < s->array[2])
 	{
-		swap(stack_a);
+		swap(s);
 		ft_putstr("sa\n");
-		reverse_rotate(stack_a);
+	}
+	else if (s->array[0] > s->array[1] && s->array[1] > s->array[2] \
+		&& s->array[0] > s->array[2])
+	{
+		swap(s);
+		ft_putstr("sa\n");
+		reverse_rotate(s);
 		ft_putstr("rra\n");
 	}
-	if (stack_a->array[1] > stack_a->array[0] \
-		&& stack_a->array[1] > stack_a->array[2])
-	{
-		if (stack_a->array[0] < stack_a->array[2])
-		{
-			swap(stack_a);
-			ft_putstr("sa\n");
-			rotate(stack_a);
-			ft_putstr("ra\n");
-		}
-		else
-		{
-			reverse_rotate(stack_a);
-			ft_putstr("ra\n");
-		}
-	}
-	return (stack_a);
+	return (s);
 }
 
-t_stack			*sort_three_last_numbers_on_a(t_stack *stack)
+t_stack			*sort_three_last_numbers_on_a(t_stack *s)
 {
-	if (stack->array[1] > stack->array[0])
+	if (s->array[0] < s->array[1] && s->array[1] > s->array[2] \
+		&& s->array[0] > s->array[2])
 	{
-		if (stack->array[0] > stack->array[2])
-		{
-			swap(stack);
-			ft_putstr("sa\n");
-			reverse_rotate(stack);
-			ft_putstr("rra\n");
-		}
+		reverse_rotate(s);
+		ft_putstr("rra\n");
 	}
-	if (stack->array[1] < stack->array[0] && stack->array[1] < stack->array[2])
+	else if (s->array[0] < s->array[1] && s->array[1] > s->array[2] \
+		&& s->array[0] < s->array[2])
 	{
-		if (stack->array[0] < stack->array[2])
-		{
-			swap(stack);
-			ft_putstr("sa\n");
-		}
-		else
-		{
-			rotate(stack);
-			ft_putstr("ra\n");
-		}
+		reverse_rotate(s);
+		ft_putstr("rra\n");
+		swap(s);
+		ft_putstr("sa\n");
 	}
-	stack = sort_three_last_numbers_on_a2(stack);
-	return (stack);
+	else if (s->array[0] > s->array[1] && s->array[1] < s->array[2] \
+		&& s->array[0] > s->array[2])
+	{
+		rotate(s);
+		ft_putstr("ra\n");
+	}
+	else
+		s = sort_tree_last2(s);
+	return (s);
 }
 
 void			selection_sort(t_stack *stack_a, t_stack *stack_b)
@@ -130,7 +118,8 @@ void			selection_sort(t_stack *stack_a, t_stack *stack_b)
 			ft_putstr("pb\n");
 		}
 	}
-	sort_three_last_numbers_on_a(stack_a);
+	if (stack_a->size == 3)
+		sort_three_last_numbers_on_a(stack_a);
 	while (stack_b->size > 0)
 	{
 		push(stack_b, stack_a);

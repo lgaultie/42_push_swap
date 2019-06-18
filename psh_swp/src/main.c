@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:20:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/17 18:31:21 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/18 11:52:24 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,24 @@ int					check_sorted_params(t_stack *stack)
 	return (-1);
 }
 
+/*
+** push_swap: decides which algo to use depending on the numbers of params.
+*/
+
 void				push_swap(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size <= 10)
+	if (stack_a->size == 2)
+	{
+		if (stack_a->array[0] > stack_a->array[1])
+		{
+			swap(stack_a);
+			ft_putstr("sa\n");
+			return ;
+		}
+	}
+	else if (stack_a->size == 3)
+		sort_three_last_numbers_on_a(stack_a);
+	else if (stack_a->size <= 10)
 		selection_sort(stack_a, stack_b);
 	else
 		quicksort(stack_a, stack_b);
