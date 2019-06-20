@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/10 13:20:03 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/18 18:38:02 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/20 16:27:05 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS =	main.c				\
 		error.c				\
 		display.c			\
 		selection_sort.c	\
-		biglist.c			\
+		divide_a.c			\
+		sort_b.c			\
 		operations.c		\
 		free_functions.c	\
 		median.c

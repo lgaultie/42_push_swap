@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/14 10:37:04 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/18 18:38:06 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/20 16:27:15 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ PUSH_SRCS =		main.c				\
 				error.c				\
 				display.c			\
 				selection_sort.c	\
-				biglist.c			\
+				divide_a.c			\
+				sort_b.c			\
 				operations.c		\
 				free_functions.c	\
 				median.c

@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:21:05 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/17 19:13:03 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/20 16:51:12 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct	s_stack
 {
 	int			*array;
+
 	int			size;
 }				t_stack;
 
@@ -29,8 +30,10 @@ void			print_tab(t_stack *stack);
 void			selection_sort(t_stack *stack_a, t_stack *stack_b);
 t_stack			*sort_three_last_numbers_on_a(t_stack *stack);
 t_stack			*sort_three_last_numbers_on_a2(t_stack *stack_a);
+void			sort_b(t_stack *stack);
 void			quicksort(t_stack *stack_a, t_stack *stack_b);
 int				find_index_median(int median, int min, t_stack *stack);
+void			calculate_max_value(t_stack *stack_b, t_stack *stack_a);
 int				find_median(t_stack *stack);
 int				find_median(t_stack *stack);
 void			reverse_rotate(t_stack *stack);
