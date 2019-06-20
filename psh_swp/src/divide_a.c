@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:25:24 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/20 16:52:12 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/20 17:50:46 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,48 @@ void	divide_stack_a(int index_med, t_stack *stack_a, t_stack *stack_b)
 		{
 			push(stack_a, stack_b);
 			ft_putstr("pb\n");
-			sort_b(stack_b);
+			// print_tab(stack_a);
+			// ft_putstr("---------\n");
+			// print_tab(stack_b);
+			// ft_putstr("---------\n");
+			stack_a->instruc &= ~SA;
+			stack_a->instruc &= ~SB;
+			stack_a->instruc &= ~RA;
+			stack_a->instruc &= ~RB;
+			stack_a->instruc &= ~RRA;
+			stack_a->instruc &= ~RRB;
+			sort_b(stack_b, stack_a);
 		}
 		else if (index_push <= stack_a->size / 2)
 		{
 			rotate(stack_a);
-			ft_putstr("ra\n");
+			if (stack_a->instruc & RB)
+			{
+				ft_putstr("rr\n");
+				stack_a->instruc &= ~RB;
+			}
+			else
+			{
+				ft_putstr("ra\n");
+				stack_a->instruc |= RA;
+			}
 		}
 		else if (index_push > stack_a->size / 2)
 		{
 			reverse_rotate(stack_a);
-			ft_putstr("rra\n");
+			if (stack_a->instruc & RRB)
+			{
+				ft_putstr("rrr\n");
+				stack_a->instruc &= ~RRB;
+			}
+			}
+			else
+			{
+				ft_putstr("rra\n");
+				stack_a->instruc |= RRA;
+			}
 		}
 	}
-}
 
 void	quicksort(t_stack *stack_a, t_stack *stack_b)
 {
