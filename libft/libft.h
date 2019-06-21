@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 15:01:17 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/05/27 17:58:45 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/21 16:04:47 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strmapi(char const *s, char(*f)(unsigned int, char));
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoinfree(char *s1, char *s2, int free_who);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 int				ft_atoi(const char *str);

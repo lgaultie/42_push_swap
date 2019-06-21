@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:21:05 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/21 11:35:43 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/21 14:37:17 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_stack
 t_stack			*init_stack_a(t_stack *stack, int argc, char **argv);
 long			modified_atoi(const char *str);
 int				duplic(t_stack *stack, int index);
+char			*ft_strjoinfree(char *s1, char *s2, int free_who);
 void			print_tab(t_stack *stack);
 void			selection_sort(t_stack *stack_a, t_stack *stack_b);
 t_stack			*sort_three_last_numbers_on_a(t_stack *stack);

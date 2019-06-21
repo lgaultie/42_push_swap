@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:27:32 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/21 11:18:49 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/21 16:08:04 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,30 @@ void	put_max_on_top(int max, int index_m, t_stack *stack_b, t_stack *stack_a)
 	if (stack_b->array[1] == max)
 	{
 		swap(stack_b);
-		stack_b->buf = ft_strjoin(stack_b->buf, "sb\n");
-		// ft_putstr("sb\n");
+		if (!(stack_b->buf = ft_strjoinfree(stack_b->buf, "sb\n", 1)))
+			return ;
 	}
-	else if (index_m <= stack_b->size / 2)
+	else if (index_m <= stack_b->size / 2) //Conditional jump or move depends on uninitialised value(s)
 	{
 		while (stack_b->array[0] != max)
 		{
 			rotate(stack_b);
-			stack_b->buf = ft_strjoin(stack_b->buf, "rb\n");
-			// ft_putstr("rb\n");
+			if (!(stack_b->buf = ft_strjoinfree(stack_b->buf, "rb\n", 1)))
+				return ;
 		}
 	}
-	else if (index_m > stack_b->size / 2)
+	else if (index_m > stack_b->size / 2) //Conditional jump or move depends on uninitialised value(s)
 	{
 		while (stack_b->array[0] != max)
 		{
 			reverse_rotate(stack_b);
-			stack_b->buf = ft_strjoin(stack_b->buf, "rrb\n");
-			// ft_putstr("rrb\n");
+			if (!(stack_b->buf = ft_strjoinfree(stack_b->buf, "rrb\n", 1)))
+				return ;
 		}
 	}
-	push(stack_b, stack_a);
-	stack_b->buf = ft_strjoin(stack_b->buf, "pa\n");
-	// ft_putstr("pa\n");
+	push(stack_b, stack_a); //Invalid write of size 4
+	if (!(stack_b->buf = ft_strjoinfree(stack_b->buf, "pa\n", 1)))
+		return ;
 }
 
 void	calculate_max_value(t_stack *stack_b, t_stack *stack_a)
@@ -78,10 +78,7 @@ void	sort_b(t_stack *stack)
 	if (stack->array[0] < median && stack->size > 1)
 	{
 		rotate(stack);
-		stack->buf = ft_strjoin(stack->buf, "rb\n");
-		// ft_putstr("rb\n");
-
-		// print_tab(stack);
-		// ft_putstr("---------\n");
+		if (!(stack->buf = ft_strjoinfree(stack->buf, "rb\n", 1)))
+			return ;
 	}
 }
