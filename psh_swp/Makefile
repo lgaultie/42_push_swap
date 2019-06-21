@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/10 13:20:03 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/20 16:27:05 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/21 11:35:27 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS =	main.c				\
 		sort_b.c			\
 		operations.c		\
 		free_functions.c	\
-		median.c
+		median.c			\
+		clean_instructions.c
 
 OBJ = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 LIB = $(LIBDIR)/libft.a
