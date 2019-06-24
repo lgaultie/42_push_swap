@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 14:30:09 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/17 19:26:43 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/24 16:44:23 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			create_stacks(int argc, char **argv)
 	free_stack(stack_a, stack_b);
 }
 
-int					main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	if (argc == 2 && ft_strcmp(argv[1], "-v") == 0)
 		return (0);

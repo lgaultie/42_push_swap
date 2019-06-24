@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/28 18:26:04 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/14 15:24:34 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/24 17:33:09 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIB) -I$(INC) -o $(NAME)
 	@printf "$(_GREEN)checker done [✓]$(_END)\n"
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(INC)/*.h
 	@$(CC) $(CFLAGS) -c -I$(INC) $< -o $@
 
 $(OBJDIR) :

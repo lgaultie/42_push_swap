@@ -6,10 +6,12 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/14 10:37:04 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/21 11:35:30 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/24 17:19:31 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME_CHK = checker
+NAME_PSH = push_swap
 CC = @clang
 CFLAGS = -Wall -Werror -Wextra
 LIBDIR = libft
@@ -31,17 +33,18 @@ CHECK_SRCS =	main.c				\
 				check_order.c		\
 				read_input.c		\
 				free_and_ret.c
-PUSH_SRCS =		main.c				\
-				init_stack_a.c		\
-				error.c				\
-				display.c			\
-				selection_sort.c	\
-				divide_a.c			\
-				sort_b.c			\
-				operations.c		\
-				free_functions.c	\
-				median.c			\
-				clean_instructions.c
+PUSH_SRCS =		main.c					\
+				init_stack_a.c			\
+				error.c					\
+				selection_sort.c		\
+				divide_a.c				\
+				sort_b.c				\
+				operations.c			\
+				free_functions.c		\
+				median.c				\
+				clean_instructions.c	\
+				reverse_sort.c			\
+				biglist.c
 
 _GREEN=\e[32m
 _YELLOW=\e[33m
@@ -50,9 +53,11 @@ _END=\e[0m
 
 all: $(CHECK_OBJ) $(PUSH_OBJ)
 	@printf "$(_YELLOW)Compilation... $(_END)"
-	@cd $(LIBDIR) && make
-	@cd $(CHECK_DIR) && make
-	@cd $(PUSH_DIR) && make
+	@make -C $(LIBDIR)
+	@make -C $(CHECK_DIR)
+	@mv $(CHECK_DIR)/$(NAME_CHK) .
+	@make -C $(PUSH_DIR)
+	@mv $(PUSH_DIR)/$(NAME_PSH) .
 	@printf "$(_CYAN)Compilation done [✓]$(_END)\n"
 
 $(CHECK_OBJDIR)/%.o: $(CHECK_SRCDIR)/%.c
@@ -74,12 +79,14 @@ $(PUSH_OBJDIR) :
 $(OBJ) : | $(OBJDIR)
 
 checker:
-	@cd $(LIBDIR) && make
-	@cd $(CHECK_DIR) && make
+	@make -C $(LIBDIR)
+	@make -C $(CHECK_DIR)
+	@mv $(CHECK_DIR)/$(NAME_CHK) .
 
 push_swap:
-	@cd $(LIBDIR) && make
-	@cd $(PUSH_DIR) && make
+	@make -C $(LIBDIR)
+	@make -C $(PUSH_DIR)
+	@mv $(PUSH_DIR)/$(NAME_PSH) .
 
 clean:
 	@printf "$(_YELLOW)clean... $(_END)"
@@ -93,6 +100,8 @@ fclean: clean
 	@rm -f $(LIB)
 	@rm -f $(CHECKER)
 	@rm -f $(PUSH_SWAP)
+	@rm -rf $(NAME_PSH)
+	@rm -rf $(NAME_CHK)
 
 	@printf "$(_CYAN)done $(_END)\n"
 

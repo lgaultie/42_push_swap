@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:20:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/18 11:52:24 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/24 17:43:28 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,32 @@ int					check_sorted_params(t_stack *stack)
 
 void				push_swap(t_stack *stack_a, t_stack *stack_b)
 {
+	int		ret;
+
+	ret = check_sorted_params(stack_a);
 	if (stack_a->size == 2)
 	{
 		if (stack_a->array[0] > stack_a->array[1])
 		{
 			swap(stack_a);
 			ft_putstr("sa\n");
-			return ;
 		}
+		return ;
 	}
 	else if (stack_a->size == 3)
 		sort_three_last_numbers_on_a(stack_a);
+	else if (stack_a->size <= 10 && ret > stack_a->size - 3 \
+		&& ret < stack_a->size)
+		small_reverse(ret, stack_a, stack_b);
 	else if (stack_a->size <= 10)
 		selection_sort(stack_a, stack_b);
 	else
-		quicksort(stack_a, stack_b);
+		biglist(stack_a, stack_b);
 }
+
+/*
+** create_stacks: create and initialize stack a & b.
+*/
 
 static void			create_stacks(int argc, char **argv)
 {

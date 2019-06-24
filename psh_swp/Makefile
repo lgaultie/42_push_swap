@@ -6,28 +6,29 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/10 13:20:03 by lgaultie          #+#    #+#              #
-#    Updated: 2019/06/21 16:07:09 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/06/24 17:32:30 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = @clang
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 OBJDIR = obj
 SRCDIR = src
 INC = ./includes/
 LIBDIR = ../libft
-SRCS =	main.c				\
-		init_stack_a.c		\
-		error.c				\
-		display.c			\
-		selection_sort.c	\
-		divide_a.c			\
-		sort_b.c			\
-		operations.c		\
-		free_functions.c	\
-		median.c			\
-		clean_instructions.c
+SRCS =	main.c					\
+		init_stack_a.c			\
+		error.c					\
+		selection_sort.c		\
+		divide_a.c				\
+		sort_b.c				\
+		operations.c			\
+		free_functions.c		\
+		median.c				\
+		clean_instructions.c	\
+		reverse_sort.c			\
+		biglist.c
 
 OBJ = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
 LIB = $(LIBDIR)/libft.a
@@ -46,7 +47,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -I$(INC) $(LIB) -o $(NAME)
 	@printf "$(_GREEN)push_swap done [✓]$(_END)\n"
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(INC)/*.h
 	@$(CC) $(CFLAGS) -c -I$(INC) $< -o $@
 
 $(OBJDIR) :
