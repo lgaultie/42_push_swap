@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:27:32 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/24 16:19:25 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/25 19:22:17 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ static void	put_max(int max, int index_m, t_stack *stack_b, t_stack *stack_a)
 	put_max2(max, index_m, stack_b, stack_a);
 }
 
+/*
+** calculate_max_value: finds biggest int in list and put it on top of stack.
+*/
+
 void		calculate_max_value(t_stack *stack_b, t_stack *stack_a)
 {
 	int		i;
@@ -72,6 +76,23 @@ void		calculate_max_value(t_stack *stack_b, t_stack *stack_a)
 	put_max(max, index_max, stack_b, stack_a);
 }
 
+int					check_sorted_params_reverse(t_stack *stack)
+{
+	int		i;
+
+	if (stack->size < 1)
+		return (-1);
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		if (stack->array[i] > stack->array[i + 1])
+			i++;
+		else
+			return (i);
+	}
+	return (-1);
+}
+
 /*
 ** sort_b: if the first number on stack_b is inferior than the median,
 ** put it in the end. So as to have less rotate to make after, when emptying
@@ -85,16 +106,19 @@ void		sort_b(t_stack *stack)
 
 	index_median = find_median(stack);
 	median = stack->array[index_median];
-	while (stack->array[0] < median && stack->size > 1)
+	if (check_sorted_params_reverse(stack) != -1)
 	{
-		rotate(stack);
-		if (!(stack->buf = ft_strjoinfree(stack->buf, "rb\n", 1)))
-			return ;
-	}
-	while (stack->array[0] < stack->array[1] && stack->size > 1)
-	{
-		swap(stack);
-		if (!(stack->buf = ft_strjoinfree(stack->buf, "sb\n", 1)))
-			return ;
+		if (stack->array[0] < median && stack->size > 1)
+		{
+			rotate(stack);
+			if (!(stack->buf = ft_strjoinfree(stack->buf, "rb\n", 1)))
+				return ;
+		}
+		if (stack->array[0] < stack->array[1] && stack->size > 1)
+		{
+			swap(stack);
+			if (!(stack->buf = ft_strjoinfree(stack->buf, "sb\n", 1)))
+				return ;
+		}
 	}
 }

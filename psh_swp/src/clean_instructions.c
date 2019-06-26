@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 11:23:52 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/24 17:56:47 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/25 17:37:56 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ static int	if_ss(int i, int size, char **t)
 	int		ss;
 
 	ss = 0;
+	if ((i > 0 && i < size - 1 && ft_strcmp(t[i], "sb") == 0 &&
+	ft_strcmp(t[i + 1], "ra") == 0 && ft_strcmp(t[i + 2], "sa") == 0))
+		ss = 2;
 	if ((i > 0 && i < size - 1 && ft_strcmp(t[i], "sa") == 0 \
 		&& ft_strcmp(t[i + 1], "sb") == 0) || (i > 0 && i < size - 1 \
 		&& ft_strcmp(t[i], "sb") == 0 && ft_strcmp(t[i + 1], "sa") == 0))
@@ -72,6 +75,11 @@ void		write_instructions(char **t)
 	{
 		if ((ss = if_ss(i, size, t)) == 1)
 			ft_putstr("ss");
+		else if ((ss = if_ss(i, size, t)) == 2)
+		{
+			ft_putstr("ra\n");
+			ft_putstr("ss");
+		}
 		else if ((rr = if_rr(i, size, t)) == 1)
 			ft_putstr("rr");
 		else if ((rrr = if_rrr(i, size, t)) == 1)
@@ -83,6 +91,8 @@ void		write_instructions(char **t)
 		}
 		if (ss == 1 || rr == 1 || rrr == 1)
 			i = i + 2;
+		if (ss == 2)
+			i = i + 3;
 		ft_putchar('\n');
 	}
 }

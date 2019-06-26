@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:21:05 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/24 17:34:58 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/25 19:16:42 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void			sort_b(t_stack *stack_b);
 void			biglist(t_stack *stack_a, t_stack *stack_b);
 int				find_index_median(int median, int min, t_stack *stack);
 void			calculate_max_value(t_stack *stack_b, t_stack *stack_a);
+void			opti_b(t_stack *stack_a, t_stack *stack_b);
 int				find_median(t_stack *stack);
+int				check_sorted_params_reverse(t_stack *stack);
 void			reverse_rotate(t_stack *stack);
 void			push(t_stack *from, t_stack *dest);
 void			rotate(t_stack *stack);

@@ -6,11 +6,29 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/24 15:16:29 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/24 16:14:29 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/26 11:22:15 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+
+// void	print_tab(t_stack *stack)
+// {
+// 	int		i;
+//
+// 	i = 0;
+// 	while (i < stack->size)
+// 	{
+// 		ft_putstr("tab[");
+// 		ft_putnbr(i);
+// 		ft_putstr("] = ");
+// 		ft_putnbr(stack->array[i]);
+// 		ft_putchar('\n');
+// 		i++;
+// 	}
+// }
+
 
 static void		sort_tree_last(t_stack *s, t_stack *stack_b)
 {
@@ -83,6 +101,9 @@ void			biglist(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	}
 	write_instructions(instruct);
+	// print_tab(stack_a);
+	// ft_putstr("------------\n");
+	// print_tab(stack_b);
 	free_tab(instruct);
 	free(stack_b->buf);
 }

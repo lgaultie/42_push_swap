@@ -6,20 +6,20 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:25:24 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/24 16:14:07 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/06/25 19:50:55 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int	index_next_push(int median, t_stack *stack)
+static int	index_next_push(int median, t_stack *stack_a)
 {
 	int		i;
 
 	i = 0;
-	while (i < stack->size && stack->array[i] >= median)
+	while (i < stack_a->size && stack_a->array[i] >= median)
 		i++;
-	if (i == stack->size)
+	if (i == stack_a->size)
 		return (-1);
 	return (i);
 }
@@ -66,6 +66,7 @@ void		divide_stack_a(int index_med, t_stack *stack_a, t_stack *stack_b)
 			if (!(stack_b->buf = ft_strjoinfree(stack_b->buf, "pb\n", 1)))
 				return ;
 			sort_b(stack_b);
+			// opti_b(stack_a, stack_b);
 		}
 		else
 			divide_stack_a2(index_push, stack_a, stack_b);
