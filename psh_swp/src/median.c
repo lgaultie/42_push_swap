@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/17 18:54:07 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/25 19:39:38 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/10 15:50:48 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,33 @@ int		find_median(t_stack *stack)
 	}
 	median = median / i;
 	return (find_index_median(median, min, stack));
+}
+
+int		find_quart_median(t_stack *stack)
+{
+	int		i;
+	int		median;
+	int		ret;
+	int		min;
+
+	median = 0;
+	ret = 0;
+	i = 0;
+	min = stack->array[0];
+	while (i < stack->size)
+	{
+		if (stack->array[i] < min)
+			min = stack->array[i];
+		median = median + stack->array[i];
+		i++;
+	}
+	median = median / i;
+	i = 0;
+	while (i < stack->size)
+	{
+		if (stack->array[i] < median)
+			ret = ret + stack->array[i];
+		i++;
+	}
+	return (find_index_median(ret, min, stack));
 }

@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:25:24 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/25 19:50:55 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/10 14:09:05 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void		divide_stack_a(int index_med, t_stack *stack_a, t_stack *stack_b)
 			if (!(stack_b->buf = ft_strjoinfree(stack_b->buf, "pb\n", 1)))
 				return ;
 			sort_b(stack_b);
-			// opti_b(stack_a, stack_b);
 		}
 		else
 			divide_stack_a2(index_push, stack_a, stack_b);

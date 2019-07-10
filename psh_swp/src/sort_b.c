@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:27:32 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/25 19:22:17 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/10 13:51:49 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ static void	put_max2(int max, int index_m, t_stack *stack_b, t_stack *stack_a)
 
 static void	put_max(int max, int index_m, t_stack *stack_b, t_stack *stack_a)
 {
-	if (stack_b->array[1] == max && stack_b->size > 1)
-	{
-		swap(stack_b);
-		if (!(stack_b->buf = ft_strjoinfree(stack_b->buf, "sb\n", 1)))
-			return ;
-	}
-	else if (index_m <= stack_b->size / 2 && stack_b->size > 1)
+	// if (stack_b->array[1] == max && stack_b->size > 1)
+	// {
+	// 	swap(stack_b);
+	// 	if (!(stack_b->buf = ft_strjoinfree(stack_b->buf, "sb\n", 1)))
+	// 		return ;
+	// }
+	if (index_m <= stack_b->size / 2 && stack_b->size > 1)
 	{
 		while (stack_b->array[0] != max)
 		{
@@ -114,11 +114,11 @@ void		sort_b(t_stack *stack)
 			if (!(stack->buf = ft_strjoinfree(stack->buf, "rb\n", 1)))
 				return ;
 		}
-		if (stack->array[0] < stack->array[1] && stack->size > 1)
-		{
-			swap(stack);
-			if (!(stack->buf = ft_strjoinfree(stack->buf, "sb\n", 1)))
-				return ;
-		}
+		// if (stack->array[0] < stack->array[1] && stack->size > 1)
+		// {
+		// 	swap(stack);
+		// 	if (!(stack->buf = ft_strjoinfree(stack->buf, "sb\n", 1)))
+		// 		return ;
+		// }
 	}
 }
