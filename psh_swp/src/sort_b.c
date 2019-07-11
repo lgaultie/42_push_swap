@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:27:32 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/07/11 14:01:15 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/11 16:19:19 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,19 @@ static void	put_max(int max, int index_m, t_stack *stack_b, t_stack *stack_a)
 	put_max2(max, index_m, stack_b, stack_a);
 }
 
-
-int					check_sorted_params_reverse(t_stack *stack)
+int			check_sorted_params_reverse(t_stack *stack)
 {
 	int		i;
 
 	if (stack->size < 1)
-	return (-1);
+		return (-1);
 	i = 0;
 	while (i < stack->size - 1)
 	{
 		if (stack->array[i] > stack->array[i + 1])
-		i++;
+			i++;
 		else
-		return (i);
+			return (i);
 	}
 	return (-1);
 }
@@ -83,7 +82,7 @@ void		sort_b(t_stack *stack)
 		{
 			rotate(stack);
 			if (!(stack->buf = ft_strjoinfree(stack->buf, "rb\n", 1)))
-			return ;
+				return ;
 		}
 	}
 }

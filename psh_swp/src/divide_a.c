@@ -6,27 +6,11 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:25:24 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/07/11 15:12:06 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/11 16:10:17 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-
-void	print_tab(t_stack *stack)
-{
-	int		i;
-
-	i = 0;
-	while (i < stack->size)
-	{
-		ft_putstr("tab[");
-		ft_putnbr(i);
-		ft_putstr("] = ");
-		ft_putnbr(stack->array[i]);
-		ft_putchar('\n');
-		i++;
-	}
-}
 
 static int	index_next_push(int median, t_stack *stack_a)
 {

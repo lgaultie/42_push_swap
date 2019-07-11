@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:21:05 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/07/11 16:08:19 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/11 16:23:52 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ void			which_sort(t_stack *stack_a, t_stack *stack_b);
 int				check_sorted_params(t_stack *stack);
 void			write_instructions(char **tab);
 int				check_followed_params(t_stack *stack);
+void			sort_three_last(t_stack *s, t_stack *stack_b);
 
 #endif

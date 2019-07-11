@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 11:23:52 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/07/10 15:43:02 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/11 16:11:59 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,6 @@ static int	calcul_tab_size(char **tab)
 	while (tab[i] != NULL)
 		i++;
 	return (i);
-}
-
-static int	if_ss(int i, int size, char **t)
-{
-	int		ss;
-
-	ss = 0;
-	if ((i > 0 && i < size - 1 && ft_strcmp(t[i], "sb") == 0 &&
-	ft_strcmp(t[i + 1], "ra") == 0 && ft_strcmp(t[i + 2], "sa") == 0))
-		ss = 2;
-	if ((i > 0 && i < size - 1 && ft_strcmp(t[i], "sa") == 0 \
-		&& ft_strcmp(t[i + 1], "sb") == 0) || (i > 0 && i < size - 1 \
-		&& ft_strcmp(t[i], "sb") == 0 && ft_strcmp(t[i + 1], "sa") == 0))
-		ss = 1;
-	return (ss);
 }
 
 static int	if_rr(int i, int size, char **t)
@@ -65,7 +50,6 @@ void		write_instructions(char **t)
 {
 	int		i;
 	int		size;
-	int		ss;
 	int		rr;
 	int		rrr;
 
@@ -73,14 +57,7 @@ void		write_instructions(char **t)
 	size = calcul_tab_size(t);
 	while (i < size)
 	{
-		if ((ss = if_ss(i, size, t)) == 1)
-			ft_putstr("ss");
-		else if ((ss = if_ss(i, size, t)) == 2)
-		{
-			ft_putstr("ra\n");
-			ft_putstr("ss");
-		}
-		else if ((rr = if_rr(i, size, t)) == 1)
+		if ((rr = if_rr(i, size, t)) == 1)
 			ft_putstr("rr");
 		else if ((rrr = if_rrr(i, size, t)) == 1)
 			ft_putstr("rrr");
@@ -89,10 +66,8 @@ void		write_instructions(char **t)
 			ft_putstr(t[i]);
 			i++;
 		}
-		if (ss == 1 || rr == 1 || rrr == 1)
+		if (rr == 1 || rrr == 1)
 			i = i + 2;
-		if (ss == 2)
-			i = i + 3;
 		ft_putchar('\n');
 	}
 }

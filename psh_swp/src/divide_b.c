@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 14:01:39 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/07/11 13:16:32 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/11 16:10:48 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static void	divide_stack_b2(int index_push, t_stack *stack_b)
 	}
 }
 
-int		divide_stack_b(int index_med, t_stack *stack_a, t_stack *stack_b, int nb_push)
+int			divide_stack_b(int index_med, t_stack *stack_a, t_stack *stack_b,
+			int nb_push)
 {
 	int		median;
 	int		index_push;

@@ -6,7 +6,7 @@
 #    By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/14 10:37:04 by lgaultie          #+#    #+#              #
-#    Updated: 2019/07/10 17:21:08 by lgaultie         ###   ########.fr        #
+#    Updated: 2019/07/11 16:24:11 by lgaultie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,9 @@ PUSH_SRCS =		main.c					\
 				free_functions.c		\
 				median.c				\
 				clean_instructions.c	\
-				biglist.c
+				biglist.c				\
+				check_params.c			\
+				sort_three_last.c
 
 _GREEN=\e[32m
 _YELLOW=\e[33m
