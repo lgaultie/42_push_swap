@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 13:20:51 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/07/10 17:22:30 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/11 11:14:49 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void				push_swap(t_stack *stack_a, t_stack *stack_b)
 		small_reverse(ret, stack_a, stack_b);
 	else if (stack_a->size <= 10)
 		selection_sort(stack_a, stack_b);
-	else if (stack_a->size <= 200)
+	else if (stack_a->size <= 150)
 		biglist1(stack_a, stack_b);
 	else
 		biglist(stack_a, stack_b);
