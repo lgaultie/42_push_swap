@@ -6,7 +6,7 @@
 /*   By: lgaultie <lgaultie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:38:43 by lgaultie          #+#    #+#             */
-/*   Updated: 2019/06/14 11:43:41 by lgaultie         ###   ########.fr       */
+/*   Updated: 2019/07/13 15:36:58 by lgaultie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	push(t_stack *from, t_stack *dest)
 	dest->size++;
 	if (dest->size > 1)
 	{
-		i = dest->size;
+		i = dest->size - 1;
 		while (i > 0)
 		{
 			dest->array[i] = dest->array[i - 1];
