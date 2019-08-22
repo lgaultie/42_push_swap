@@ -34,4 +34,4 @@ Then use the executables as presented below (checker may wait for manual instruc
 Example
 ===
 
-![Screen Shot 2019-07-13 at 4 07 34 PM](https://user-images.githubusercontent.com/45974214/61172699-7646d680-a588-11e9-8416-aa607b4d9c70.png)
+![Screen Shot 2019-08-22 at 7 42 54 PM](https://user-images.githubusercontent.com/45974214/63537007-10e5ee00-c515-11e9-86e1-a1178e1796a6.png)
